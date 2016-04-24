@@ -13,6 +13,8 @@
  *
  * =====================================================================================
  */
+#ifndef TEST_LIST_H
+#define TEST_LIST_H
 
 int clean_list_suite
     (
@@ -59,3 +61,4 @@ void test_remove_element
     void
     );
 
+#endif

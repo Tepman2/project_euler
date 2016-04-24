@@ -34,8 +34,8 @@
  */
 int main 
     ( 
-    int argc, 
-    char *argv[] 
+    int argc,
+    char * argv[]
     )
 {
 uint32_t ret_val = 0;
