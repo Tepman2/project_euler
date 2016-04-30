@@ -85,25 +85,20 @@ i = 0;
 
 while(cur != NULL)
     {
-//    printf("%d\n", *(uint32_t *)cur->data);
     CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
     cur = cur->next;
     i++;
     }
-//printf("Now loop from the tail\n");
 cur = NULL;
 cur = get_tail(new_list);
 CU_ASSERT_PTR_NOT_NULL(cur);
 i = 9;
 while(cur != NULL)
     {
-//    printf("%d\n", *(uint32_t *)cur->data);
     CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
     cur = cur->prev;
     i--;
     }
-//printf("Done looping through the linked list!\n");
-//printf("The list is %d elements long.\n", new_list->size);
 CU_ASSERT_EQUAL(new_list->size, 10);
 }
 
@@ -112,6 +107,21 @@ void test_get_head
     void
     )
 {
+uint32_t arr[] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512};
+uint32_t i;
+list * new_list = make_new_list();
+node * cur = get_head(new_list);
+CU_ASSERT_PTR_NOT_NULL(new_list);
+CU_ASSERT_PTR_NULL(cur);
+for(i = 0; i < 10; i++)
+    {
+    add(new_list, &(arr[i]));
+    }
+cur = get_head(new_list);
+CU_ASSERT_PTR_NOT_NULL(cur);
+CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[0]);
+CU_ASSERT_PTR_NOT_NULL(cur->next);
+CU_ASSERT_PTR_NULL(cur->prev);
 }
 
 void test_get_tail
@@ -119,6 +129,21 @@ void test_get_tail
     void
     )
 {
+uint32_t arr[] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512};
+uint32_t i;
+list * new_list = make_new_list();
+node * cur = get_tail(new_list);
+CU_ASSERT_PTR_NOT_NULL(new_list);
+CU_ASSERT_PTR_NULL(cur);
+for(i = 0; i < 10; i++)
+    {
+    add(new_list, &(arr[i]));
+    }
+cur = get_tail(new_list);
+CU_ASSERT_PTR_NOT_NULL(cur);
+CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[9]);
+CU_ASSERT_PTR_NULL(cur->next);
+CU_ASSERT_PTR_NOT_NULL(cur->prev);
 }
 
 void test_make_new_list
@@ -126,6 +151,11 @@ void test_make_new_list
     void
     )
 {
+list * new_list = make_new_list();
+CU_ASSERT_PTR_NOT_NULL(new_list);
+CU_ASSERT_PTR_NULL(new_list->head);
+CU_ASSERT_PTR_NULL(new_list->tail);
+CU_ASSERT_EQUAL(new_list->size, 0);
 }
 
 void test_prepend
@@ -144,29 +174,24 @@ for(i = 0; i < 10; i++)
     }
 cur = get_head(new_list);
 CU_ASSERT_PTR_NOT_NULL(cur);
-i = 0;
-while(cur != NULL)
-    {
-    CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
-//    printf("%d\n", *(uint32_t *)cur->data);
-    cur = cur->next;
-    i++;
-    }
-//printf("Now loop from the tail\n");
-cur = NULL;
-cur = get_tail(new_list);
-CU_ASSERT_PTR_NOT_NULL(cur);
 i = 9;
 while(cur != NULL)
     {
     CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
-//    printf("%d\n", *(uint32_t *)cur->data);
-    cur = cur->prev;
+    cur = cur->next;
     i--;
     }
-//printf("Done looping through the linked list!\n");
+cur = NULL;
+cur = get_tail(new_list);
+CU_ASSERT_PTR_NOT_NULL(cur);
+i = 0;
+while(cur != NULL)
+    {
+    CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
+    cur = cur->prev;
+    i++;
+    }
 CU_ASSERT_EQUAL(new_list->size, 10);
-//printf("The list is %d elements long.\n", new_list->size);
 }
 
 void test_remove_element
@@ -174,7 +199,8 @@ void test_remove_element
     void
     )
 {
-uint32_t arr[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90}; uint32_t i;
+uint32_t arr[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+uint32_t i;
 list * new_list = make_new_list();
 CU_ASSERT_PTR_NOT_NULL(new_list);
 node * cur;
@@ -182,11 +208,9 @@ for(i = 0; i < 10; i++)
     {
     add(new_list, &(arr[i]));
     }
-CU_ASSERT_EQUAL(new_list->size, 9);
-//printf("The list is %d elements long.\n", new_list->size);
+CU_ASSERT_EQUAL(new_list->size, 10);
 cur = remove_element(new_list, 3);
 CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[3]);
-//printf("Removed the element containing %d.\n", *(uint32_t *)cur->data);
 cur = get_head(new_list);
 i = 0;
 
@@ -197,11 +221,9 @@ while(cur != NULL)
         i++;
         }
     CU_ASSERT_EQUAL(*(uint32_t *)cur->data, arr[i]);
-//    printf("%d\n", *(uint32_t *)cur->data);
     cur = cur->next;
     i++;
     }
 CU_ASSERT_EQUAL(new_list->size, 9);
-//printf("The list is now %d elements long.\n", new_list->size);
 }
 

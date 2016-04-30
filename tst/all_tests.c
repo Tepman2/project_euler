@@ -21,6 +21,7 @@
 #include    <CUnit/Automated.h>
 #include    "test_prime.h"
 #include    "test_list.h"
+#include    "test_string.h"
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -41,8 +42,9 @@ int main
     CU_set_output_filename("Project Euler");
 
     /* Create the suites */
-    if((-1 == setup_prime_suite())
-    || (-1 == setup_list_suite() ))
+    if((-1 == setup_prime_suite() )
+    || (-1 == setup_list_suite()  )
+    || (-1 == setup_string_suite()))
         {
         CU_cleanup_registry();
         return CU_get_error();

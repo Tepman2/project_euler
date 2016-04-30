@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  prime.h
+ *       Filename:  test_string.h
  *
- *    Description:  Header for the prime number functions and structures
+ *    Description:  String stuffs
  *
  *        Version:  1.0
- *        Created:  04/17/2016 09:18:07 AM
+ *        Created:  04/30/2016 10:46:25 AM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,21 +15,27 @@
  *
  * =====================================================================================
  */
-#ifndef PRIME_H
-#define PRIME_H
+#ifndef TEST_STRING_H
+#define TEST_STRING_H
 
-#include    <stdint.h>
-#include    <stdbool.h>
-#include    "list.h"
-
-bool is_prime
+int setup_string_suite
     (
-    uint64_t num
+    void
     );
 
-list * prime_factors
+int init_string_suite
     (
-    uint64_t val
+    void
+    );
+
+int clean_string_suite
+    (
+    void
+    );
+
+void test_is_palindrome
+    (
+    void
     );
 
 #endif

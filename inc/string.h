@@ -1,12 +1,10 @@
 /*
  * =====================================================================================
  *
- *       Filename:  prime.h
- *
- *    Description:  Header for the prime number functions and structures
+ *       Filename:  string.h
  *
  *        Version:  1.0
- *        Created:  04/17/2016 09:18:07 AM
+ *        Created:  04/30/2016 10:44:11 AM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,21 +13,14 @@
  *
  * =====================================================================================
  */
-#ifndef PRIME_H
-#define PRIME_H
+#ifndef STRING_H
+#define STRING_H
 
 #include    <stdint.h>
 #include    <stdbool.h>
-#include    "list.h"
 
-bool is_prime
-    (
-    uint64_t num
-    );
-
-list * prime_factors
+bool is_palindrome
     (
     uint64_t val
     );
-
 #endif

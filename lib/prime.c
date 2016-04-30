@@ -19,6 +19,8 @@
 #include    <math.h>
 #include    <stdint.h>
 #include    <stdbool.h>
+#include    <stdlib.h>
+#include    "list.h"
 
 bool is_prime
     (
@@ -68,3 +70,30 @@ for(i = 5; i <= (uint64_t)sqrt(num); i += 6)
 return true;
 }
 
+list * prime_factors
+    (
+    uint64_t val
+    )
+{
+uint64_t i = 2;
+uint64_t *i_ptr;
+uint64_t tmp_val = val;
+list *ret_val = make_new_list();
+while(tmp_val > 1)
+    {
+    if((tmp_val % i) == 0)
+        {
+        i_ptr = malloc(sizeof(uint64_t));
+        *i_ptr = i;
+        add(ret_val, i_ptr);
+        }
+    while(((tmp_val % i) == 0) 
+       && (tmp_val > 1       ))
+        {
+        tmp_val /= i;
+        }
+    i++;
+    }
+
+return ret_val;
+}
