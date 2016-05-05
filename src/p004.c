@@ -22,9 +22,11 @@
  */
 
 #include	<stdlib.h>
-#include    <stdio.h>
 #include    <stdint.h>
-#include    "string.h"
+bool is_palindrome
+    (
+    uint64_t val
+    );
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -39,7 +41,6 @@ int main
     )
 {
     uint32_t a, b;
-//    uint64_t c;
     uint64_t largest = 0;
 
     for(a = 999; a >= 100; a--)
