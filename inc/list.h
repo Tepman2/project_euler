@@ -16,6 +16,8 @@
 #ifndef  LIST_H
 #define  LIST_H
 
+#include    <stdint.h>
+
 typedef struct node_type node;
 struct node_type
     {

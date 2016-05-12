@@ -20,6 +20,12 @@
 #include    <stdint.h>
 #include    "list.h"
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  get_head
+ *  Description:  
+ * =====================================================================================
+ */
 node * get_head
     (
     list * lst
@@ -27,8 +33,14 @@ node * get_head
 {
 assert(lst != NULL);
 return lst->head;
-}
+}		/* -----  end of function get_head  ----- */
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  get_tail
+ *  Description:  Gives the given list's tail element.
+ * =====================================================================================
+ */
 node * get_tail
     (
     list * lst
@@ -36,7 +48,7 @@ node * get_tail
 {
 assert(lst != NULL);
 return lst->tail;
-}
+}		/* -----  end of function get_tail  ----- */
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -66,8 +78,15 @@ else
     }
 lst->tail = new_elem;
 lst->size++;
-}
+}		/* -----  end of function add  ----- */
 
+
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  remove_element
+ *  Description:  Removes the element at the specified position from the list
+ * =====================================================================================
+ */
 node * remove_element
     (
     list * lst,
@@ -106,9 +125,14 @@ else
     lst->size--;
     }
 return node_to_remove;
+}		/* -----  end of function remove_element  ----- */
 
-}
-
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  prepend
+ *  Description:  Adds the given element to a new node at the front of the set
+ * =====================================================================================
+ */
 void prepend
     (
     list * lst,
@@ -130,8 +154,14 @@ else
     }
 lst->head = new_elem;
 lst->size++;
-}
+}		/* -----  end of function prepend  ----- */
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  make_new_list
+ *  Description:  Creates a new list
+ * =====================================================================================
+ */
 list * make_new_list
     (
     void
@@ -142,4 +172,4 @@ new_list->head = NULL;
 new_list->tail = NULL;
 new_list->size = 0;
 return new_list;
-}
+}		/* -----  end of function make_new_list  ----- */

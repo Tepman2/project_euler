@@ -22,6 +22,7 @@
 #include    "test_prime.h"
 #include    "test_list.h"
 #include    "test_string.h"
+#include    "test_set.h"
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -44,7 +45,8 @@ int main
     /* Create the suites */
     if((-1 == setup_prime_suite() )
     || (-1 == setup_list_suite()  )
-    || (-1 == setup_string_suite()))
+    || (-1 == setup_string_suite())
+    || (-1 == setup_set_suite()   ))
         {
         CU_cleanup_registry();
         return CU_get_error();

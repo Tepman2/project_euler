@@ -85,11 +85,11 @@ while(tmp_val > 1)
         {
         i_ptr = malloc(sizeof(uint64_t));
         *i_ptr = i;
-        add(ret_val, i_ptr);
         }
     while(((tmp_val % i) == 0) 
        && (tmp_val > 1       ))
         {
+        add(ret_val, i_ptr);
         tmp_val /= i;
         }
     i++;
