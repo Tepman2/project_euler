@@ -8,14 +8,14 @@ CFLAGS=-c -g -Wall -Werror -I$(IDIR)
 
 LIBS=-lm -lcunit
 
-_DEPS=prime.h list.h string.h set.h rb_tree.h
+_DEPS=prime.h list.h str_utl.h set.h rb_tree.h
 DEPS=$(addprefix $(IDIR),$(_DEPS))
 
 _TSRC=all_tests.c test_list.c test_prime.c test_string.c test_set.c
 TSRC=$(addprefix $(TDIR),$(_TSRC))
 TOBJ=$(addprefix $(ODIR),$(TSRC:.c=.o))
 
-_LSRC=prime.c list.c string.c set.c rb_tree.c
+_LSRC=prime.c list.c str_utl.c set.c rb_tree.c
 LSRC=$(addprefix $(LDIR),$(_LSRC))
 LOBJ=$(addprefix $(ODIR),$(LSRC:.c=.o))
 

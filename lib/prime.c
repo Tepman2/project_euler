@@ -70,27 +70,71 @@ for(i = 5; i <= (uint64_t)sqrt(num); i += 6)
 return true;
 }
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  sieve_of_eratosthenes
+ *  Description:  Performs the Sieve of Eratosthenes to find and return the
+ *                list of primes below the given limit
+ * =====================================================================================
+ */
+list * sieve_of_eratosthenes
+    (
+    uint64_t lim
+    )
+{
+list * prime_list = make_new_list();
+uint8_t lst[lim + 1];
+uint64_t i, j;
+
+for(i = 0; i <= lim; i++)
+    {
+    lst[i] = 1;
+    }
+lst[0] = 0;
+lst[1] = 0;
+/* perform the sieve */
+for(i = 2; i <= (uint64_t)sqrt(lim); i++)
+    {
+    if(lst[i] == 1)
+        {
+        for(j = 2 * i; j <= lim; j += i)
+            {
+            if(lst[j] == 1)
+                {
+                lst[j] = 0;
+                }
+            }
+        }
+    }
+/* add the value to the prime list */
+for(i = 2; i <= lim; i++)
+    {
+    if(lst[i] == 1)
+        {
+        add(prime_list, &i, sizeof(i));
+        }
+    }
+return prime_list;
+}		/* -----  end of function sieve_of_eratosthenes  ----- */
+
 list * prime_factors
     (
     uint64_t val
     )
 {
 uint64_t i = 2;
-uint64_t *i_ptr;
 uint64_t tmp_val = val;
 list *ret_val = make_new_list();
 while(tmp_val > 1)
     {
     if((tmp_val % i) == 0)
         {
-        i_ptr = malloc(sizeof(uint64_t));
-        *i_ptr = i;
-        }
-    while(((tmp_val % i) == 0) 
-       && (tmp_val > 1       ))
-        {
-        add(ret_val, i_ptr);
-        tmp_val /= i;
+        while(((tmp_val % i) == 0) 
+           && (tmp_val > 1       ))
+            {
+            add(ret_val, &i, sizeof(i));
+            tmp_val /= i;
+            }
         }
     i++;
     }

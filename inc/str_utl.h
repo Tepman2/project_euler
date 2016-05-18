@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  string.h
+ *       Filename:  str_utl.h
  *
  *        Version:  1.0
  *        Created:  04/30/2016 10:44:11 AM
@@ -13,8 +13,8 @@
  *
  * =====================================================================================
  */
-#ifndef STRING_H
-#define STRING_H
+#ifndef STR_UTL_H
+#define STR_UTL_H
 
 #include    <stdint.h>
 #include    <stdbool.h>

@@ -32,4 +32,8 @@ list * prime_factors
     uint64_t val
     );
 
+list * sieve_of_eratosthenes
+    (
+    uint64_t lim
+    );
 #endif

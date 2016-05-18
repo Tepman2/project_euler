@@ -23,10 +23,8 @@
 
 #include	<stdlib.h>
 #include    <stdint.h>
-bool is_palindrome
-    (
-    uint64_t val
-    );
+
+#include    "str_utl.h"
 
 /* 
  * ===  FUNCTION  ======================================================================

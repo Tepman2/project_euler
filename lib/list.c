@@ -18,6 +18,7 @@
 #include    <assert.h>
 #include	<stdlib.h>
 #include    <stdint.h>
+#include    <string.h>
 #include    "list.h"
 
 /* 
@@ -59,13 +60,16 @@ return lst->tail;
 void add
     (
     list * lst,
-    void * elem
+    void * elem,
+    size_t elem_sz
     )
 {
 assert(lst != NULL);
 assert(elem != NULL);
+assert(elem_sz != 0);
 node * new_elem = malloc(sizeof(node));
-new_elem->data = elem;
+new_elem->data = malloc(elem_sz);
+memcpy(new_elem->data, elem, elem_sz);
 new_elem->prev = lst->tail;
 /* If this is the first element */
 if(lst->head == NULL)
@@ -136,13 +140,15 @@ return node_to_remove;
 void prepend
     (
     list * lst,
-    void * elem
+    void * elem,
+    size_t elem_sz
     )
 {
 assert(lst != NULL);
 assert(elem != NULL);
 node * new_elem = malloc(sizeof(node));
-new_elem->data = elem;
+new_elem->data = malloc(elem_sz);
+memcpy(new_elem->data, elem, elem_sz);
 new_elem->next = lst->head;
 if(lst->tail == NULL)
     {

@@ -22,11 +22,11 @@
 #include    "rb_tree.h"
 #include    "set.h"
 
-static void set_to_list
-    (
-    set * old_set,
-    list * new_list
-    );
+//static void set_to_list
+//    (
+//    set * old_set,
+//    list * new_list
+//    );
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -82,17 +82,17 @@ insert_node(root, node, compare);
  *  Description:  
  * =====================================================================================
  */
-list * to_list
-    (
-    set * old_set
-    )
-{
-list * new_list = make_new_list();
-assert(old_set != NULL);
-assert(new_list != NULL);
-set_to_list(old_set, new_list);
-return new_list;
-}		/* -----  end of function to_list  ----- */
+//list * to_list
+//    (
+//    set * old_set
+//    )
+//{
+//list * new_list = make_new_list();
+//assert(old_set != NULL);
+//assert(new_list != NULL);
+//set_to_list(old_set, new_list);
+//return new_list;
+//}		/* -----  end of function to_list  ----- */
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  set_to_list
@@ -100,29 +100,29 @@ return new_list;
  *  from the old set to the new list
  * =====================================================================================
  */
-static void set_to_list
-    ( 
-    set *  old_set,
-    list * new_list
-    )
-{
-assert(new_list != NULL);
-assert(old_set != NULL);
-if(old_set->data == NULL)
-    {
-    return;
-    }
-/* Perform postfix to put data in "order" */
-if(old_set->left != NULL)
-    {
-    set_to_list(old_set->left, new_list);
-    }
-if(old_set->right != NULL)
-    {
-    set_to_list(old_set->right, new_list);
-    }
-add(new_list, old_set->data);
-}		/* -----  end of function set_to_list  ----- */
+//static void set_to_list
+//    ( 
+//    set *  old_set,
+//    list * new_list
+//    )
+//{
+//assert(new_list != NULL);
+//assert(old_set != NULL);
+//if(old_set->data == NULL)
+//    {
+//    return;
+//    }
+///* Perform postfix to put data in "order" */
+//if(old_set->left != NULL)
+//    {
+//    set_to_list(old_set->left, new_list);
+//    }
+//if(old_set->right != NULL)
+//    {
+//    set_to_list(old_set->right, new_list);
+//    }
+//add(new_list, old_set->data);
+//}		/* -----  end of function set_to_list  ----- */
 
 
 /* 
@@ -159,4 +159,4 @@ add(new_list, old_set->data);
 //    {
 //    delete_one_child(node);
 //    }
-//}		/* -----  end of function delete_set_node  ----- */
+//}		/* -----  end of function delete_set_node  ----- *ing/

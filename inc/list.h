@@ -38,7 +38,8 @@ struct list_type
 void add
     (
     list * lst,
-    void * elem
+    void * elem,
+    size_t elem_sz
     );
 
 /* get the first element of the given list */
@@ -63,7 +64,8 @@ list * make_new_list
 void prepend
     (
     list * lst,
-    void * elem
+    void * elem,
+    size_t elem_sz
     );
 
 /* remove the nth element (0-based) */
